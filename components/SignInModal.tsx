@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { X, Lock, Mail, GraduationCap } from 'lucide-react';
+import { X, Lock, Mail } from 'lucide-react';
+import { Logo } from './LogoImage';
 
 interface SignInModalProps {
   isOpen: boolean;
@@ -13,65 +14,67 @@ const SignInModal: React.FC<SignInModalProps> = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
       <div 
-        className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" 
+        className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" 
         onClick={onClose}
       />
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-200">
-        <div className="bg-blue-700 p-8 text-white text-center">
+      <div className="relative bg-white rounded-sm shadow-2xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-200 border-b-8 border-[#800000]">
+        <div className="bg-[#4A0404] p-10 text-white text-center border-b-4 border-[#800000] relative">
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 p-1 hover:bg-white/10 rounded-full transition-colors"
+            className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full transition-colors"
           >
             <X size={20} />
           </button>
-          <GraduationCap size={48} className="mx-auto mb-4" />
-          <h2 className="text-2xl font-bold">Welcome Back</h2>
-          <p className="text-blue-100 text-sm mt-2">Access your research dashboard</p>
+          <div className="mx-auto mb-6 transition-transform hover:scale-110 duration-500">
+            <Logo size={72} className="mx-auto border-none p-2 shadow-2xl" />
+          </div>
+          <h2 className="text-2xl font-serif font-bold uppercase tracking-tight">Institutional Login</h2>
+          <p className="text-red-100/60 text-[10px] font-black uppercase tracking-[0.2em] mt-3">Access SkillSphere Registry</p>
         </div>
         
-        <div className="p-8 space-y-6">
-          <div className="space-y-4">
+        <div className="p-10 space-y-8">
+          <div className="space-y-6">
             <div>
-              <label className="text-xs font-bold text-slate-500 uppercase block mb-1.5 tracking-wider">Email Address</label>
+              <label className="text-[10px] font-black text-slate-400 uppercase block mb-2 tracking-widest">Scholar Identifier (Email)</label>
               <div className="relative">
-                <Mail size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input 
                   type="email" 
-                  placeholder="name@university.edu"
-                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                  placeholder="scholar@suas.ac.in"
+                  className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-sm focus:ring-1 focus:ring-[#800000] outline-none transition-all text-sm italic"
                 />
               </div>
             </div>
             <div>
-              <label className="text-xs font-bold text-slate-500 uppercase block mb-1.5 tracking-wider">Password</label>
+              <label className="text-[10px] font-black text-slate-400 uppercase block mb-2 tracking-widest">Secure Access Key</label>
               <div className="relative">
-                <Lock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                <Lock size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input 
                   type="password" 
                   placeholder="••••••••"
-                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                  className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-sm focus:ring-1 focus:ring-[#800000] outline-none transition-all text-sm"
                 />
               </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-sm">
-            <label className="flex items-center gap-2 cursor-pointer text-slate-600">
-              <input type="checkbox" className="rounded text-blue-600 focus:ring-blue-500" />
-              Remember me
+          <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest">
+            <label className="flex items-center gap-3 cursor-pointer text-slate-500">
+              <input type="checkbox" className="w-4 h-4 rounded border-slate-300 text-[#800000] focus:ring-red-500" />
+              Maintain Session
             </label>
-            <button className="text-blue-700 font-bold hover:underline">Forgot Password?</button>
+            <button className="text-[#800000] hover:underline">Recovery</button>
           </div>
 
           <button 
             onClick={onClose}
-            className="w-full bg-blue-700 text-white py-3.5 rounded-xl font-bold hover:bg-blue-800 transition-all shadow-lg active:scale-[0.98]"
+            className="w-full bg-[#800000] text-white py-4 rounded-sm text-xs font-black uppercase tracking-widest hover:bg-[#4A0404] transition-all shadow-xl shadow-red-900/10 active:scale-[0.98]"
           >
-            Sign In
+            Authenticate
           </button>
 
-          <p className="text-center text-sm text-slate-500">
-            Don't have an account? <button className="text-blue-700 font-bold hover:underline">Register today</button>
+          <p className="text-center text-[10px] font-black uppercase tracking-widest text-slate-400">
+            External Scholar? <button className="text-[#800000] hover:underline">Request Registry Access</button>
           </p>
         </div>
       </div>

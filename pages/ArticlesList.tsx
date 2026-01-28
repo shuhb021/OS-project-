@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { JOURNALS, ARTICLES } from '../data/mockData';
@@ -37,11 +36,11 @@ const ArticlesList: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 font-primary">
-      <div className="bg-[#002147] py-16 text-white">
+      <div className="bg-[#4A0404] py-16 text-white border-b-4 border-[#800000]">
         <div className="max-w-7xl mx-auto px-4">
           <Breadcrumbs />
-          <h1 className="text-4xl font-serif font-bold mb-3">Published Articles</h1>
-          <p className="text-blue-100/70 text-lg">{journal.title}</p>
+          <h1 className="text-4xl font-serif font-bold mb-3 uppercase tracking-tight">Published Articles</h1>
+          <p className="text-red-100/60 text-lg italic">{journal.title}</p>
         </div>
       </div>
 
@@ -51,7 +50,7 @@ const ArticlesList: React.FC = () => {
           {/* Advanced Filter Panel */}
           <aside className="w-full lg:w-80 shrink-0">
             <div className="bg-white p-6 border border-slate-200 rounded-sm shadow-sm sticky top-24">
-              <h3 className="text-sm font-black text-[#002147] uppercase tracking-widest mb-6 border-b border-slate-100 pb-4">
+              <h3 className="text-sm font-black text-[#800000] uppercase tracking-widest mb-6 border-b border-slate-100 pb-4">
                 Refine Search
               </h3>
               
@@ -63,7 +62,7 @@ const ArticlesList: React.FC = () => {
                     <input 
                       type="text"
                       placeholder="Title or Author..."
-                      className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold rounded-sm focus:ring-1 focus:ring-blue-500 outline-none"
+                      className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold rounded-sm focus:ring-1 focus:ring-red-500 outline-none"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -75,7 +74,7 @@ const ArticlesList: React.FC = () => {
                   <div className="relative">
                     <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
                     <select 
-                      className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold rounded-sm appearance-none outline-none focus:ring-1 focus:ring-blue-500"
+                      className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold rounded-sm appearance-none outline-none focus:ring-1 focus:ring-red-500"
                       value={filterYear}
                       onChange={(e) => setFilterYear(e.target.value)}
                     >
@@ -90,7 +89,7 @@ const ArticlesList: React.FC = () => {
                   <div className="relative">
                     <Layout className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={14} />
                     <select 
-                      className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold rounded-sm appearance-none outline-none focus:ring-1 focus:ring-blue-500"
+                      className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold rounded-sm appearance-none outline-none focus:ring-1 focus:ring-red-500"
                       value={filterType}
                       onChange={(e) => setFilterType(e.target.value)}
                     >
@@ -107,7 +106,7 @@ const ArticlesList: React.FC = () => {
                       setFilterYear('All Years');
                       setFilterType('All Types');
                     }}
-                    className="w-full py-2 text-[10px] font-black uppercase text-blue-700 hover:bg-blue-50 transition-colors tracking-widest"
+                    className="w-full py-2 text-[10px] font-black uppercase text-[#800000] hover:bg-red-50 transition-colors tracking-widest"
                   >
                     Reset All Filters
                   </button>
@@ -123,7 +122,7 @@ const ArticlesList: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Sort By:</span>
                 <select 
-                  className="bg-transparent text-xs font-black text-[#002147] border-none focus:ring-0 cursor-pointer"
+                  className="bg-transparent text-xs font-black text-[#800000] border-none focus:ring-0 cursor-pointer"
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                 >
@@ -136,16 +135,16 @@ const ArticlesList: React.FC = () => {
             <div className="space-y-4">
               {filteredArticles.length > 0 ? (
                 filteredArticles.map(article => (
-                  <div key={article.id} className="bg-white p-8 border border-slate-200 hover:shadow-lg transition-all border-l-4 border-l-[#002147]">
+                  <div key={article.id} className="bg-white p-8 border border-slate-200 hover:shadow-lg transition-all border-l-4 border-l-[#800000]">
                     <div className="flex justify-between items-center mb-4">
-                      <span className="text-[10px] font-black text-blue-700 uppercase tracking-widest bg-blue-50 px-2 py-1">
+                      <span className="text-[10px] font-black text-[#C41E3A] uppercase tracking-widest bg-red-50 px-2 py-1">
                         {article.publicationType}
                       </span>
                       <span className="text-xs font-bold text-slate-400">Vol {article.volume}, Issue {article.issue} ({article.year})</span>
                     </div>
 
                     <Link to={`/journal/${id}/article/${article.id}`} className="block mb-4">
-                      <h2 className="text-2xl font-serif font-bold text-slate-900 hover:text-blue-700 leading-snug">
+                      <h2 className="text-2xl font-serif font-bold text-slate-900 hover:text-[#800000] leading-snug">
                         {article.title}
                       </h2>
                     </Link>
@@ -160,10 +159,10 @@ const ArticlesList: React.FC = () => {
                         <span>Downloads: {article.downloads}</span>
                       </div>
                       <div className="flex gap-4">
-                        <button className="flex items-center gap-1.5 text-xs font-black text-slate-600 hover:text-blue-700 transition-colors uppercase tracking-widest">
+                        <button className="flex items-center gap-1.5 text-xs font-black text-slate-600 hover:text-[#800000] transition-colors uppercase tracking-widest">
                           <Download size={14} /> PDF
                         </button>
-                        <button className="flex items-center gap-1.5 text-xs font-black text-slate-600 hover:text-blue-700 transition-colors uppercase tracking-widest">
+                        <button className="flex items-center gap-1.5 text-xs font-black text-slate-600 hover:text-[#800000] transition-colors uppercase tracking-widest">
                           <Quote size={14} /> Cite
                         </button>
                       </div>

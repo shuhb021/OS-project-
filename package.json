@@ -1,7 +1,7 @@
 {
-  "name": "academiapress-journal-portal",
+  "name": "skillsphere-journal-portal",
   "version": "1.0.0",
-  "description": "A professional academic journal platform inspired by Springer.",
+  "description": "The official academic publishing portal for SkillSphere, presented by Symbiosis University of Applied Sciences.",
   "main": "index.tsx",
   "dependencies": {
     "react": "^19.2.4",
@@ -17,8 +17,10 @@
     "journal",
     "research",
     "science",
-    "react"
+    "react",
+    "skillsphere",
+    "symbiosis"
   ],
-  "author": "AcademiaPress",
+  "author": "Symbiosis University",
   "license": "MIT"
 }
