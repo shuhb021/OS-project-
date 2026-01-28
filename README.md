@@ -1,20 +1,22 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# AcademiaPress Journal Portal
 
-# Run and deploy your AI Studio app
+A professional, responsive academic journal website inspired by Springer.
 
-This contains everything you need to run your app locally.
+## Features
+- **Clean Academic UI**: Professional white-background layout with corporate blue accents.
+- **Journal Management**: Categorized browsing and impact metrics.
+- **Article Archive**: Advanced list view with filtering and sorting capabilities.
+- **Data Visualization**: Trend analysis using Recharts for Impact Factors and downloads.
+- **Responsive Submissions**: Comprehensive multi-step manuscript submission form.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1sNC2gxsY2lePA4HSXW9ejeGqnjZSUJQ9
+## Running Locally
 
-## Run Locally
+1. **Prerequisites**: Ensure [Node.js](https://nodejs.org/) is installed on your machine.
+2. **Setup**:
+   - Clone or copy the project files to a local directory.
+   - Run `npm install` in your terminal to install dependencies.
+3. **Execution**:
+   - Start your local development server (e.g., `npm run dev` or `npx vite`).
+   - Open the provided local URL in your browser.
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+*Note: In this environment, the root directory serves as the source folder. For local development, you may choose to move the `.tsx`, `.ts`, and subfolders into a `src/` directory and update your build configuration accordingly.*

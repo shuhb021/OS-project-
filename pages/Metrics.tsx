@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { JOURNALS } from '../data/mockData';
@@ -6,7 +5,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { Activity, Globe, Download, Award } from 'lucide-react';
 
 const Metrics: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const journal = JOURNALS.find(j => j.id === id);
 
   if (!journal) return <div className="p-20 text-center">Journal not found.</div>;

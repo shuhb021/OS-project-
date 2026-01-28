@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { JOURNALS, ARTICLES } from '../data/mockData';
@@ -6,7 +5,7 @@ import { FileText, Info, ArrowRight } from 'lucide-react';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 const JournalOverview: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams();
   const location = useLocation();
   const journal = JOURNALS.find(j => j.id === id);
   const latestArticles = ARTICLES.filter(a => a.journalId === id).slice(0, 3);
